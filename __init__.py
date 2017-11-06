@@ -1,4 +1,4 @@
-import MonthlyPhCosts.arrange
+import arrange
 
 print( "=====================================" )
 print( "====     MONTHLY PHONE COSTS     ====" )

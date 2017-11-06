@@ -21,6 +21,8 @@ def take(dat):
                     line=infile.readline()
                     cnt+=1
                     line_ckeck = re.match("\"\d",line)
+
+
                     if line_ckeck:
                         print(str(cnt), " nameren ")
                         outfile.write(line)
