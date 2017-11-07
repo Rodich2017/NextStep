@@ -17,24 +17,37 @@ def take(dat):
                 line=infile.readline()
                 cnt=1
                 while line:
-                    print( "Line {}: {}".format( cnt, line.strip() ) )
-                    line=infile.readline()
-                    cnt+=1
-                    line_ckeck = re.match("\"\d",line)
+                    line = infile.readline ( )
+                    cnt = 1
+                    while line:
+                        print ( "Line {}: {}".format ( cnt, line.strip ( ) ) )
+                        line = infile.readline ( )
+                        cnt += 1
 
-
-                    if line_ckeck:
-                        print(str(cnt), " nameren ")
-                        outfile.write(line)
-                outfile.close()
-              infile.close()
+                        a = len(line.split())
+                        print(str(a))
+                        if a == 11:
+                            line_ckeck = re.match ( "\"\d", line )
+                            if line_ckeck:
+                                print ( str ( cnt ), " nameren " )
+                                outfile.write ( line )
+                        elif a == 13:
+                            # da razfasovam masiva i da vzema 1-6 i 9-10 element
+                            line_ckeck = re.match ( "\"\d", line )
+                            if line_ckeck:
+                                print ( str ( cnt ), " nameren " )
+                                outfile.write ( line )
+                        else:
+                            continue
+                    outfile.close ( )
+                infile.close ( )
 
         except ValueError:
             print( ValueError.__name__ )
-        except OSError:
-            print( OSError.errno )
-
-
+        except OSError as e:
+            return e.errno
+        else:
+            return True
         finally:
             infile.close()
 
